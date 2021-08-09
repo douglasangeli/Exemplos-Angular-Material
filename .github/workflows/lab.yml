@@ -9,9 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: sarisia/actions-status-discord@v1
+        name: Send success message
         if: always()
-        with:
+        with:        
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
+          title: "Deploy finalizado com sucesso"
+          description: "Build and deploy to GitHub Pages"
+          username: GitHub Actions
     
 #       - name: Send success message
 #         if: ${{ success() }}
