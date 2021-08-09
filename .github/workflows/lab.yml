@@ -1,0 +1,27 @@
+name: Lab
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: send message
+        if: ${{ success() }}
+        uses: appleboy/discord-action@master
+        with:
+            webhook_id: '870709783504769055'
+            webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
+            message: ":window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](https://douglasangeli.github.io/Exemplos-Angular-Material)"
+    
+      - name: send message
+        if: ${{ failure() }}
+        uses: appleboy/discord-action@master
+        with:
+            webhook_id: '870709783504769055'
+            webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
+            message: |
+                build de versão do TorusPDV Linux para versão ${{ github.event.inputs.message }} falhou miseravelmente.      
+                verifique em: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
