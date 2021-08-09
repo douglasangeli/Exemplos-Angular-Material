@@ -8,6 +8,12 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: "Hello world when it's Monday"
+        run: echo "Hello $FIRST_NAME $middle_name $Last_Name, today is Monday!"
+        env:
+          FIRST_NAME: Mona
+          middle_name: The
+          Last_Name: Octocat
       - uses: sarisia/actions-status-discord@v1
         name: Send success message
         if: always()
