@@ -15,7 +15,7 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
           title: "Deploy finalizado com sucesso"
-          description: "Build and deploy to GitHub Pages ${{github.context.actor}}"
+          description: 'Build and deploy to GitHub Pages ${{GITHUB_ACTOR}} ${{GITHUB_SERVER_URL}}'
           username: GitHub Actions
     
 #       - name: Send success message
