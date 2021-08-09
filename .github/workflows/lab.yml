@@ -8,7 +8,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - run: echo ${{ github.GITHUB_ACTOR }}
+      - run: echo "${{ github.GITHUB_ACTOR }}"
       - uses: sarisia/actions-status-discord@v1
         name: Send success message
         if: always()
