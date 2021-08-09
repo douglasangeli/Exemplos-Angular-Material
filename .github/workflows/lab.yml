@@ -11,15 +11,15 @@ on:
 jobs:
   notify:
     runs-on: ubuntu-latest
-    env:
-      ACAO: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-      AUTOR: $GITHUB_ACTOR
+    
     steps:
       - run: echo "$ACAO $AUTOR"
+        env:
+          ACAO: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+          AUTOR: $GITHUB_ACTOR
       - uses: sarisia/actions-status-discord@v1
         name: Send success message
-        if: always()
-        
+        if: always()        
         with:        
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
