@@ -12,8 +12,8 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     env:
-      ACAO: "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-      AUTOR: "$GITHUB_ACTOR"
+      ACAO: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      AUTOR: $GITHUB_ACTOR
     steps:
       - run: echo "$ACAO $AUTOR"
       - uses: sarisia/actions-status-discord@v1
