@@ -12,7 +12,7 @@ jobs:
         name: Send success message
         if: always()
         env:
-          ACAO: "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          ACAO: ${{ GITHUB_SERVER_URL }}/${{ GITHUB_REPOSITORY }}/actions/runs/${{ GITHUB_RUN_ID }}
         with:        
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
