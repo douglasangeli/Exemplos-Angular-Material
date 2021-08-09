@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Print all environment variables"
-      - run:  env
+      - run:  github
       - uses: sarisia/actions-status-discord@v1
         name: Send success message
         if: always()
