@@ -34,7 +34,7 @@ jobs:
           description: |
               Acesso em: [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
               Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
-              Responsável: ${{ github.context.actor }}
+              Responsável: ${{ github.actor }}
               
       - uses: sarisia/actions-status-discord@v1
         name: Send failure message
@@ -47,4 +47,4 @@ jobs:
           description: |
               Acesso em: [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
               Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
-              Responsável: ${{ github.context.actor }}
+              Responsável: ${{ github.actor }}
