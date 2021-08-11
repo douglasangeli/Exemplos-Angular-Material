@@ -25,8 +25,8 @@ jobs:
             webhook_id: '870709783504769055'
             webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
             message: |
-              ":window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](https://douglasangeli.github.io/Exemplos-Angular-Material)"
-              "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+              :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](https://douglasangeli.github.io/Exemplos-Angular-Material)
+              ${{ github.GITHUB_SERVER_URL}}/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ GITHUB_RUN_ID }}
     
       - name: Send error message
         if: ${{ failure() }}
