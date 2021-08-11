@@ -13,7 +13,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     env:
-      PAGE_URL: "https://douglasangeli.github.io/Exemplos-Angular-Material"
+      PAGE_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
     steps:      
       - name: Send success message
         if: ${{ success() }}
@@ -23,7 +23,7 @@ jobs:
             webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
             message: |
               :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
-              verifique em: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+              verifique em: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
     
       - name: Send error message
         if: ${{ failure() }}
