@@ -13,7 +13,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     env:
-      DEPLOY_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
+      DEPLOY_URL: "https://douglasangeli.github.io/${github.repository_name}"
     steps:
       - uses: actions/checkout@master
         with:
