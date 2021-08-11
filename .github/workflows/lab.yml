@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo "${{ github.event }}"
+      - run: echo "${{ github.event.repository }} $GITHUB_SERVER_URL"
       
       - name: Send success message
         if: ${{ success() }}
