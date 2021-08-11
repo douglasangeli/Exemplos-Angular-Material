@@ -13,11 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-        env:
-          ACAO: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
-          AUTOR: $GITHUB_ACTOR
-    
+      - run: echo "${{ github.event.repository.name }}"
+      
       - name: Send success message
         if: ${{ success() }}
         uses: appleboy/discord-action@master
