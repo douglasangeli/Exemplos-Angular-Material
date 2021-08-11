@@ -1,6 +1,6 @@
 {
   "name": "exemplos-angular-material",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -12,7 +12,7 @@
     "cypress:run": "cypress run",
     "preci": "rm -fr node_modules",
     "ci": "yarn install --frozen-lockfile",
-    "build:ci": "ng build --sourceMap=false --base-href /exemplos-angular-material/",
+    "build:ci": "ng build --prod --sourceMap=false --base-href https://douglasangeli.github.io/Exemplos-Angular-Material/",
     "test:ci": "ng test --watch=false --code-coverage --source-map true --browsers=ChromeHeadless"
   },
   "private": true,
