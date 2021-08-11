@@ -30,11 +30,12 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
           username: GitHub Actions
+          avatar_url: "https://github.com/${{ github.actor }}.png"
           title: ":truck: Deploy da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso"
           description: |
-              Acesso em: [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
-              Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
-              Responsável: ${{ github.actor }}
+              **Acesso em:** [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
+              **Infos da Action:** <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
+              **Responsável:** [${{ github.actor }}](<https://github.com/${{ github.actor }}>)
               
       - uses: sarisia/actions-status-discord@v1
         name: Send failure message
@@ -43,8 +44,9 @@ jobs:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
           username: GitHub Actions
+          avatar_url: "https://github.com/${{ github.actor }}.png"
           title: "Falha no deploy da versão ${{ steps.previoustag.outputs.tag }}"
           description: |
-              Acesso em: [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
-              Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
-              Responsável: ${{ github.actor }}
+              **Acesso em:** [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
+              **Infos da Action:** <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
+              **Responsável:** [${{ github.actor }}](<https://github.com/${{ github.actor }}>)
