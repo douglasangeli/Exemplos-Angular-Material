@@ -17,30 +17,23 @@ jobs:
         env:
           ACAO: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
           AUTOR: $GITHUB_ACTOR
-      - uses: sarisia/actions-status-discord@v1
-        name: Send success message
-        if: always()        
-        with:        
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          nodetail: true
-          title: "Deploy finalizado com sucesso"
-          description: "Build and deploy to GitHub Pages $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
-          username: GitHub Actions
     
-#       - name: Send success message
-#         if: ${{ success() }}
-#         uses: appleboy/discord-action@master
-#         with:
-#             webhook_id: '870709783504769055'
-#             webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
-#             message: ":window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](https://douglasangeli.github.io/Exemplos-Angular-Material)"
+      - name: Send success message
+        if: ${{ success() }}
+        uses: appleboy/discord-action@master
+        with:
+            webhook_id: '870709783504769055'
+            webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
+            message: |
+              ":window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](https://douglasangeli.github.io/Exemplos-Angular-Material)"
+              $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
     
-#       - name: Send error message
-#         if: ${{ failure() }}
-#         uses: appleboy/discord-action@master
-#         with:
-#             webhook_id: '870709783504769055'
-#             webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
-#             message: |
-#                 build de versão do TorusPDV Linux para versão ${{ github.event.inputs.message }} falhou miseravelmente.      
-#                 verifique em: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+      - name: Send error message
+        if: ${{ failure() }}
+        uses: appleboy/discord-action@master
+        with:
+            webhook_id: '870709783504769055'
+            webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
+            message: |
+                build de versão do TorusPDV Linux para versão ${{ github.event.inputs.message }} falhou miseravelmente.      
+                verifique em: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
