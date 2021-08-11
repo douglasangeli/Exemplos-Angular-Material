@@ -15,6 +15,17 @@ jobs:
     env:
       PAGE_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
     steps:      
+      - uses: sarisia/actions-status-discord@v1
+        name: Send success message
+        if: always()        
+        with:        
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
+          username: GitHub Actions
+          title: "Deploy finalizado com sucesso"
+          description: |
+              :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
+              verifique em: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>          
       - name: Send success message
         if: ${{ success() }}
         uses: appleboy/discord-action@master
