@@ -14,9 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       BUILD_URL: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-    steps:
-      - run: echo "${{ github.event.repository }} ${{ env.BUILD_URL }}"
-      
+      PAGE_URL: "https://douglasangeli.github.io/Exemplos-Angular-Material"
+    steps:      
       - name: Send success message
         if: ${{ success() }}
         uses: appleboy/discord-action@master
@@ -24,9 +23,8 @@ jobs:
             webhook_id: '870709783504769055'
             webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
             message: |
-              :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](https://douglasangeli.github.io/Exemplos-Angular-Material)
-              ${{ github.event.repository.name }}
-              ${{ github.GITHUB_SERVER_URL}}/${{ env.GITHUB_REPOSITORY }}/actions/runs/${{ github.GITHUB_RUN_ID }}
+              :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
+              ${{ env.BUILD_URL }}
     
       - name: Send error message
         if: ${{ failure() }}
