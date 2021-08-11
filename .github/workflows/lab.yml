@@ -13,7 +13,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     env:
-      PAGE_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
+      DEPLOY_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
     steps:
       - name: Checkout
         uses: actions/checkout@master
@@ -59,7 +59,7 @@ jobs:
           title: "Deploy finalizado com sucesso"
           description: |
               :truck: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso.
-              Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
+              Acesso em: [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
               Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>    
               
       - uses: sarisia/actions-status-discord@v1
@@ -71,5 +71,6 @@ jobs:
           username: GitHub Actions
           title: "Falha no Deploy"
           description: |
-              :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
-              verifique em: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>  
+              Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com erro.
+              Acesso em: [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
+              Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>  
