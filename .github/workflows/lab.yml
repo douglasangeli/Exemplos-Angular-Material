@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      - run: echo "${{ github.event.repository.name }}"
+      - run: echo "${{ github.event }}"
       
       - name: Send success message
         if: ${{ success() }}
