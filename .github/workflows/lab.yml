@@ -15,8 +15,9 @@ jobs:
     env:
       DEPLOY_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
     steps:
-      - name: Checkout
-        uses: actions/checkout@master
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
         
       - name: Obter numero da tag mais recente
         id: previoustag
