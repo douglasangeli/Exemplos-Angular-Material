@@ -8,12 +8,14 @@ on:
     branches: [ main ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+
 jobs:
   notify:
     runs-on: ubuntu-latest
-    
+    env:
+      BUILD_URL: "${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
     steps:
-      - run: echo "${{ github.event.repository }} $GITHUB_SERVER_URL"
+      - run: echo "${{ github.event.repository }} $env.BUILD_URL"
       
       - name: Send success message
         if: ${{ success() }}
