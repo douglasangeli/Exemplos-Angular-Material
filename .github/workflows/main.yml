@@ -53,3 +53,44 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
           FOLDER: deploy_dist/exemplos-angular-material
+  notify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    env:
+      DEPLOY_URL: "https://douglasangeli.github.io/Exemplos-Angular-Material"
+    steps:
+      - uses: actions/checkout@master
+        with:
+          fetch-depth: 0
+        
+      - name: Obter numero da tag mais recente
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+           
+      - uses: sarisia/actions-status-discord@v1
+        name: Send success message
+        if: success()      
+        with:        
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
+          username: GitHub Actions
+          avatar_url: "https://github.com/${{ github.actor }}.png"
+          title: ":truck: Deploy da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso"
+          description: |
+              **Acesso em:** [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
+              **Infos da Action:** [${{ github.run_id }}](<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>)
+              **Responsável:** [${{ github.actor }}](<https://github.com/${{ github.actor }}>)
+              
+      - uses: sarisia/actions-status-discord@v1
+        name: Send failure message
+        if: failure()      
+        with:        
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
+          username: GitHub Actions
+          avatar_url: "https://github.com/${{ github.actor }}.png"
+          title: "Falha no deploy da versão ${{ steps.previoustag.outputs.tag }}"
+          description: |
+              **Acesso em:** [Exemplos-Angular-Material](${{ env.DEPLOY_URL }})
+              **Infos da Action:** [${{ github.run_id }}](<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>)
+              **Responsável:** [${{ github.actor }}](<https://github.com/${{ github.actor }}>)
