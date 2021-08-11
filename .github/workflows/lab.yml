@@ -13,7 +13,7 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     env:
-      BUILD_URL: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}
+      BUILD_URL: "${{ GITHUB_SERVER_URL }}/${{ GITHUB_REPOSITORY }}/actions/runs/${{ GITHUB_RUN_ID }}"
       PAGE_URL: "https://douglasangeli.github.io/Exemplos-Angular-Material"
     steps:      
       - name: Send success message
