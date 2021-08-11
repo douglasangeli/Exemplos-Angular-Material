@@ -14,34 +14,59 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PAGE_URL: "https://douglasangeli.github.io/${{ github.repository_name }}"
-    steps:      
+    steps:
+      - name: Obter numero da tag mais recente
+        id: previoustag
+        uses: WyriHaximus/github-action-get-previous-tag@v1
+
+      - uses: jungwinter/split@v1
+        name: Splitar nome da tag        
+        id: split
+        with:
+            seperator: '-'
+            msg: '${{ steps.previoustag.outputs.tag }}'
+      
+      - uses: AsasInnab/regex-action@v1
+        name: Verifica se o nome da tag possui SemVer no primeiro trecho        
+        with:
+            regex_pattern: '^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(-(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(\.(0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*)?(\+[0-9a-zA-Z-]+(\.[0-9a-zA-Z-]+)*)?$'
+            regex_flags: 'gim'
+            search_string: '${{ steps.split.outputs._0 }}'
+      
+      - name: Finaliza a action se o nome da tag nao possui SemVer
+        if: ${{ steps.regex_versao.outputs.first_match }}
+        uses: actions/github-script@v3
+        with:
+          script: core.setFailed('Validacao da versao do projeto falhou')
+
+      - uses: jossef/action-set-json-field@v1
+        name: Atualizar Package json        
+        with:
+            file: ./package.json
+            field: version
+            value: '${{ steps.split.outputs._0 }}'
+            
       - uses: sarisia/actions-status-discord@v1
         name: Send success message
-        if: always()        
+        if: success()      
         with:        
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           nodetail: true
           username: GitHub Actions
           title: "Deploy finalizado com sucesso"
           description: |
+              :truck: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso.
+              Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
+              Infos da Action: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>    
+              
+      - uses: sarisia/actions-status-discord@v1
+        name: Send failure message
+        if: failure()      
+        with:        
+          webhook: ${{ secrets.DISCORD_WEBHOOK }}
+          nodetail: true
+          username: GitHub Actions
+          title: "Falha no Deploy"
+          description: |
               :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
-              verifique em: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>          
-      - name: Send success message
-        if: ${{ success() }}
-        uses: appleboy/discord-action@master
-        with:
-            webhook_id: '870709783504769055'
-            webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
-            message: |
-              :window::penguin: Build da versão ${{ steps.previoustag.outputs.tag }} finalizado com sucesso. Acesso em: [Exemplos-Angular-Material](${{ env.PAGE_URL }})
-              verifique em: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>
-    
-      - name: Send error message
-        if: ${{ failure() }}
-        uses: appleboy/discord-action@master
-        with:
-            webhook_id: '870709783504769055'
-            webhook_token: Xsv-gOCNSq6M12EzZbY74UMPdBzCegfH544ky0-ywE1OWo6g5vGue1YAA0eL2JeL34gE
-            message: |
-                build de versão do TorusPDV Linux para versão ${{ github.event.inputs.message }} falhou miseravelmente.      
-                verifique em: https://github.com/${{github.repository}}/actions/runs/${{github.run_id}}
+              verifique em: <https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}>  
