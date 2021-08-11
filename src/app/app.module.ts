@@ -59,6 +59,8 @@ import { SliderComponent } from './slider/slider.component';
 import { StepperComponent } from './stepper/stepper.component';
 import { TabelasComponent } from './tabelas/tabelas.component';
 import { TabsComponent } from './tabs/tabs.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 const ptBrDateProvider: Provider = { provide: MAT_DATE_LOCALE, useValue: 'pt-BR' };
@@ -127,7 +129,13 @@ const ptBrDateProvider: Provider = { provide: MAT_DATE_LOCALE, useValue: 'pt-BR'
     MatSortModule,
     MatStepperModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     ptBrDateProvider
