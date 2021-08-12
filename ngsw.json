@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1628725862416,
+  "timestamp": 1628733077370,
   "index": "https://douglasangeli.github.io/Exemplos-Angular-Material/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "https://douglasangeli.github.io/Exemplos-Angular-Material/favicon.ico",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/index.html",
-        "https://douglasangeli.github.io/Exemplos-Angular-Material/main.e69c6ab37ea59a2770db.js",
+        "https://douglasangeli.github.io/Exemplos-Angular-Material/main.e787700d4cb4ddd6dd61.js",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/manifest.webmanifest",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/polyfills-es5.c80de08559b82e59cd8d.js",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/polyfills.149deddca145bf9efa85.js",
@@ -32,30 +32,34 @@
       "urls": [
         "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-128x128.png",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-144x144.png",
-        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-152x152.png",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-192x192.png",
-        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-384x384.png",
+        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-48x48.png",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-512x512.png",
         "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-72x72.png",
-        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-96x96.png"
+        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-96x96.png",
+        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/images/avatar-vira-lata.jpg",
+        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/images/github-circle-white-transparent.svg",
+        "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/images/vira-lata-caramelo.jpeg"
       ],
       "patterns": []
     }
   ],
   "dataGroups": [],
   "hashTable": {
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-192x192.png": "1abd80d431a237a853ce38147d8c63752f10933b",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-384x384.png": "329749cd6393768d3131ed6304c136b1ca05f2fd",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-512x512.png": "559d9c4318b45a1f2b10596bbb4c960fe521dbcc",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-72x72.png": "c457e56089a36952cd67156f9996bc4ce54a5ed9",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/favicon.ico": "84161b857f5c547e3699ddfbffc6d8d737542e01",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/index.html": "18c8e2f442ec3a809d41ee9bbd3b78b574ca0ec9",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/main.e69c6ab37ea59a2770db.js": "41008bba46d64afed1177959a02fd98c693620e7",
-    "https://douglasangeli.github.io/Exemplos-Angular-Material/manifest.webmanifest": "232abff8cf6f05f1017ab1206ae36fd98e6112ad",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-128x128.png": "3630f183fb372183cffd0f8fda63f95ebc0dae28",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-144x144.png": "f2b2ee9abae89205bfe190759e28b8d8ab3dbbad",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-192x192.png": "b953c86c5eeab41f9bc9d35574240a07c18ccd4b",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-48x48.png": "8431b52834422b1be39a6ed55fcc0aa623e8febd",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-512x512.png": "6130a4b1af49f1cc2f1334e2593adf41b41441d3",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-72x72.png": "a6bb51661e56308c0d2b790b1874845a550e88fd",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/icons/icon-96x96.png": "5b5d69153a69add295ce18e09cb573446f20d8a6",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/images/avatar-vira-lata.jpg": "30d9e189c96309cbaae865aa22e30e8ba7829044",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/images/github-circle-white-transparent.svg": "5659974046466df7da6f95ee1a2241093f8499c1",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/assets/images/vira-lata-caramelo.jpeg": "627f0803bf90492560934c9c96a00c6e75809655",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/favicon.ico": "4d7e5973e8f920a29ba89c713d601bb22b6e753e",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/index.html": "7284b5ff75777b21402dd69a5912d8dc7de0b41d",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/main.e787700d4cb4ddd6dd61.js": "668e9bb1d72a3081aa3afdb3b59972d42d61b9e4",
+    "https://douglasangeli.github.io/Exemplos-Angular-Material/manifest.webmanifest": "9a4a1a4724da5222ab934cf6e945a034cf2cd6c4",
     "https://douglasangeli.github.io/Exemplos-Angular-Material/polyfills-es5.c80de08559b82e59cd8d.js": "42b6e34879edc387aee20c41ec9956e6f2a87b21",
     "https://douglasangeli.github.io/Exemplos-Angular-Material/polyfills.149deddca145bf9efa85.js": "e0ec7dc606cf41d3a0b8023372eb3873cdfb9d73",
     "https://douglasangeli.github.io/Exemplos-Angular-Material/runtime.ff34419ef04741e4a997.js": "c083eb3c4690a19007bb18b2d4c558ff9f8cf299",
